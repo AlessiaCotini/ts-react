@@ -1,16 +1,30 @@
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { Container, Row, Col } from "react-bootstrap";
-
+import { Container, Row } from "react-bootstrap";
+import SinglePage from "./components/SinglePage";
+import NewsPaperNavbar from "./components/NewsPaperNavbar";
+import NewsFooter from "./components/NewsFooter";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import SingleDetails from "./components/SingleDetails";
 function App() {
   return (
-    <>
-      <Container fluid>
-        <Row className="justify-content-center">
-          <Col xs={12} md={6} lg={4}></Col>
-        </Row>
-      </Container>
-    </>
+    <BrowserRouter>
+      <NewsPaperNavbar />
+      <Routes>
+        <Route
+          path="/"
+          element={
+            <Container fluid>
+              <Row className="justify-content-center">
+                <SinglePage />
+              </Row>
+            </Container>
+          }
+        ></Route>
+        <Route path="details/:id" element={<SingleDetails />}></Route>
+      </Routes>
+      <NewsFooter />
+    </BrowserRouter>
   );
 }
 

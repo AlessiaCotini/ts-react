@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { Row, Col, Button, Card } from "react-bootstrap";
+import { useState } from "react";
 const link = "https://api.api-onepiece.com/v2/chapters/en";
 
 interface ICharactersObj {
@@ -9,7 +10,6 @@ interface ICharactersObj {
   description: string;
 }
 
-import { useState } from "react";
 const Fetchcomponents = () => {
   const [onepiece, setCharacters] = useState<ICharactersObj[]>([]);
   const getCharacters = () => {
